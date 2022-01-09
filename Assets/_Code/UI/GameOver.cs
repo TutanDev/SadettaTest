@@ -1,6 +1,5 @@
 using TutanDev.Core;
 using TutanDev.References;
-using TutanDev.SaveSystem;
 using UnityEngine;
 using System.Linq;
 
@@ -22,7 +21,7 @@ namespace TutanDev.UI
                 gameData.Sessions[gameData.Sessions.Count() - 1].Score = score.value;
                 gameData.Sessions[gameData.Sessions.Count() - 1].Name = topScorePanel.GetComponentInChildren<TMPro.TMP_InputField>().text;
                 gameData.Sessions = gameData.Sessions.OrderByDescending(x => x.Score).ToArray();
-                SaveSystem.SaveSystem.SaveGame(gameData);
+                SaveSystem.SaveGame(gameData);
             }
 
             GameManager.Instance.ChangeState(GameState.StartScreen);
@@ -36,7 +35,7 @@ namespace TutanDev.UI
 
         private void OnEnable()
         {
-            gameData = SaveSystem.SaveSystem.LoadGame();
+            gameData = SaveSystem.LoadGame();
             scoreText.text = string.Format(initialText, score.value);
             gameData.Sessions = gameData.Sessions.OrderByDescending(x => x.Score).ToArray();
             topScorePanel.gameObject.SetActive(gameData.Sessions.Any(x => x.Score < score.value));

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TutanDev.Core;
 using UnityEngine;
 
@@ -12,6 +10,8 @@ namespace TutanDev.UI
         StartScreen startScreen;
         [SerializeField] GameObject gameOverPrefab;
         GameOver gameOver;
+        [SerializeField] GameObject scoreCountPrefab;
+        ScoreCount scoreCount;
 
         private void Start()
         {
@@ -20,6 +20,9 @@ namespace TutanDev.UI
 
             gameOver = Instantiate(gameOverPrefab, Canvases).GetComponent<GameOver>();
             gameOver.gameObject.SetActive(false);
+
+            scoreCount = Instantiate(scoreCountPrefab, Canvases).GetComponent<ScoreCount>();
+            scoreCount.gameObject.SetActive(false);
         }
 
         private void OnEnable()
@@ -31,6 +34,7 @@ namespace TutanDev.UI
         {
             startScreen.gameObject.SetActive(newState == GameState.StartScreen);
             gameOver.gameObject.SetActive(newState == GameState.GameOver);
+            scoreCount.gameObject.SetActive(newState == GameState.Playing);
         }
     }
 }

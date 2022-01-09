@@ -22,7 +22,7 @@ namespace TutanDev.UI
 
         private void OnEnable()
         {
-            topScores.Init(SaveSystem.SaveSystem.LoadGame());
+            topScores.Init(SaveSystem.LoadGame());
         }
 
         private void Update()

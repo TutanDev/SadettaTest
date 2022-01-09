@@ -1,7 +1,7 @@
 using System.IO;
 using UnityEngine;
 
-namespace TutanDev.SaveSystem
+namespace TutanDev.Core
 {
     public static class SaveSystem
     {
