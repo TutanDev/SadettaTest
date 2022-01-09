@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e51b0dbab4cae9459aaecd2e07d5636, type: 3}
+  m_Name: EscapeReadAction
+  m_EditorClassIdentifier: 
+  readValue: {fileID: 11400000, guid: 64007ba3c66fba24186dfe8a0f24f3cc, type: 2}
+  activationKeys: 1b000000
