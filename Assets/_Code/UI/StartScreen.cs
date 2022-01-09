@@ -1,3 +1,4 @@
+using TutanDev.Core;
 using TutanDev.References;
 using UnityEditor;
 using UnityEngine;
@@ -11,12 +12,16 @@ namespace TutanDev.UI
 
         public void StartClick()
         {
-            // EventManager.Start.Invoke
+            GameManager.Instance.ChangeState(GameState.Playing);
         }
 
-        private void Start()
+        private void Awake()
         {
             topScores = GetComponentInChildren<TopScores>();
+        }
+
+        private void OnEnable()
+        {
             topScores.Init(SaveSystem.SaveSystem.LoadGame());
         }
 

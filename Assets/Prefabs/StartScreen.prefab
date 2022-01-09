@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd9ebbe2dd660248ba18840df489079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitReference: {fileID: 11400000, guid: 64007ba3c66fba24186dfe8a0f24f3cc, type: 2}
+  exitReference: {fileID: 11400000, guid: 19fba30301e6e0a479d2140bfe2022db, type: 2}
 --- !u!1 &7831706240076237344
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +692,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7831706240507749504}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7831706239157275602}
+        m_TargetAssemblyTypeName: TutanDev.UI.StartScreen, Assembly-CSharp
+        m_MethodName: StartClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7831706240594546199
 GameObject:
   m_ObjectHideFlags: 0

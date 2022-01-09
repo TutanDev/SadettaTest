@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using TutanDev.References;
 using UnityEngine;
 
 
@@ -7,16 +7,75 @@ namespace TutanDev.Core
 {
     public class GameManager : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        public static GameManager Instance;
+        public static event Action<GameState> OnGamestateChanged;
+        GameState state = GameState.None;
 
+        [SerializeField] Transform EnviromentTransform;
+        [SerializeField] GameObject playerPrefab;
+        GameObject player;
+        [SerializeField] GameObject obstacleSpawnerPrefab;
+        GameObject obstacleSpawner;
+        [SerializeField]IntReference score ;
+
+        private void Awake()
+        {
+            Instance = this;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Start()
         {
-
+            ChangeState(GameState.StartScreen);
         }
+        public void ChangeState(GameState newState)
+        {
+            if (state == newState) return;
+
+            state = newState;
+            switch (newState)
+            {
+                case GameState.StartScreen:
+                    EndPlaying();
+                    break;
+                case GameState.Playing:
+                    StartPlaying();
+                    break;
+                case GameState.GameOver:
+                    EndPlaying();
+                    break;
+            }
+
+            OnGamestateChanged?.Invoke(state);
+        }
+
+        void StartPlaying()
+        {
+            score.value = 0;
+            player = Instantiate(playerPrefab, EnviromentTransform);
+            obstacleSpawner = Instantiate(obstacleSpawnerPrefab, EnviromentTransform);
+        }
+
+        void EndPlaying()
+        {
+            if (player != null)
+                Destroy(player);
+            if (obstacleSpawner != null)
+                Destroy(obstacleSpawner);
+        }
+
+        public void AddScore(int add)
+        {
+            score.value += add;
+            //event for ui
+            print("score is: " + score.value);
+        }
+    }
+
+    public enum GameState
+    {
+        None,
+        StartScreen,
+        Playing,
+        GameOver
     }
 }

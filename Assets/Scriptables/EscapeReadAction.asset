@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e51b0dbab4cae9459aaecd2e07d5636, type: 3}
-  m_Name: EscapeReadAction
-  m_EditorClassIdentifier: 
-  readValue: {fileID: 11400000, guid: 64007ba3c66fba24186dfe8a0f24f3cc, type: 2}
+  m_Script: {fileID: 11500000, guid: 138669d3529c43c489e5fe721afc3ab4, type: 3}
+  m_Name: EscapereadAction
+  m_EditorClassIdentifier: Assembly-CSharp:TutanDev.Input:CleckReadAction
+  readValue: {fileID: 11400000, guid: 19fba30301e6e0a479d2140bfe2022db, type: 2}
   activationKeys: 1b000000

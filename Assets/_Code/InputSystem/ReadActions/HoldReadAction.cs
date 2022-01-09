@@ -3,11 +3,12 @@ using UnityEngine;
 
 namespace TutanDev.Input
 {
-    [CreateAssetMenu(menuName = "TutanDev/ReadActions/Bool")]
-    public class BoolReadAction : ReadAction
+    [CreateAssetMenu(menuName = "TutanDev/ReadActions/Hold")]
+    public class HoldReadAction : ReadAction
     {
         [SerializeField] BoolReference readValue;
         [SerializeField] KeyCode[] activationKeys;
+
         public override void Read()
         {
             bool read = false;

@@ -7,14 +7,16 @@ namespace TutanDev.UI
     {
         GameObject scorePrefab;
 
-        private void Awake()
+        public void Init(GameData data)
         {
             scorePrefab = transform.GetChild(0).gameObject;
             scorePrefab.SetActive(false);
-        }
 
-        public void Init(GameData data)
-        {
+            for (int i = 1; i < transform.childCount; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+
             foreach (var session in data.Sessions)
             {
                 var go = Instantiate(scorePrefab, transform);

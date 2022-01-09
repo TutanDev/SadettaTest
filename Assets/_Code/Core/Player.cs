@@ -10,6 +10,7 @@ namespace TutanDev.Core
         [SerializeField] float angleLimit = 45.0f;
 
         [SerializeField] BoolReference flyInput;
+        [SerializeField] BoolReference EscInput;
 
         Transform myTransform;
         float startPositionX;
@@ -22,6 +23,12 @@ namespace TutanDev.Core
 
         private void Update()
         {
+            if (EscInput.value)
+            {
+                GameManager.Instance.ChangeState(GameState.StartScreen);
+            }
+
+
             MoveVertically();
             RotateBaseOnInput();
         }

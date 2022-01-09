@@ -44,7 +44,7 @@ namespace TutanDev.Core
         {
             if (other.gameObject.layer == PlayerLayer)
             {
-                print("Player death");
+                GameManager.Instance.ChangeState(GameState.GameOver);
             }
         }
     }

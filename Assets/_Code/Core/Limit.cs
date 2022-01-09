@@ -10,11 +10,11 @@ namespace TutanDev.Core
         {
             if (other.gameObject.layer == PlayerLayer)
             {
-                print("Player death");
+                GameManager.Instance.ChangeState(GameState.GameOver);
             }
             else if (other.gameObject.layer == ObstacleLayer)
             {
-                print("Score + 1");
+                GameManager.Instance.AddScore(1);
             }
         }
     }
