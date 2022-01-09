@@ -9,4 +9,3 @@ namespace TutanDev.References
         public bool value;
     }
 }
-

@@ -7,4 +7,3 @@ namespace TutanDev.Input
         public abstract void Read();
     }
 }
-
