@@ -66,8 +66,6 @@ namespace TutanDev.Core
         public void AddScore(int add)
         {
             score.value += add;
-            //event for ui
-            print("score is: " + score.value);
         }
     }
 
