@@ -169,6 +169,7 @@ MonoBehaviour:
   Canvases: {fileID: 1336525875}
   startScreenPrefab: {fileID: 7831706239157275567, guid: 5e2de86287442eb4c8ba18145e849bce, type: 3}
   gameOverPrefab: {fileID: 5846022734950451593, guid: 987ec757d6fb49447b9f7583a5719649, type: 3}
+  scoreCountPrefab: {fileID: 958632732865157754, guid: e8f4d42c2fbe8c343acfd38f63616ef2, type: 3}
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0

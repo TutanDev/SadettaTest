@@ -29,14 +29,11 @@ namespace TutanDev.UI
         {
             if (!exitReference.value) return;
 
-            if(Application.platform == RuntimePlatform.WindowsEditor)
-            {
+#if UNITY_EDITOR
                 EditorApplication.ExitPlaymode();
-            }
-            else
-            {
+#else
                 Application.Quit();
-            }
+#endif
         }
     }
 }
