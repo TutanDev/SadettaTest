@@ -12,12 +12,12 @@ namespace TutanDev.Core
         [SerializeField] BoolReference flyInput;
 
         Transform myTransform;
-        Transform graphics;
+        float startPositionX;
 
         private void Awake()
         {
             myTransform = transform;
-            graphics = myTransform.GetChild(0);
+            startPositionX = myTransform.position.x;
         }
 
         private void Update()
@@ -28,20 +28,18 @@ namespace TutanDev.Core
 
         void MoveVertically()
         {
-            myTransform.position = Vector3.ProjectOnPlane(myTransform.position + myTransform.right * (speed * Time.deltaTime), Vector3.right);
+            Vector3 targetPosition = Vector3.ProjectOnPlane(myTransform.position + myTransform.right * (speed * Time.deltaTime), Vector3.right);
+            targetPosition.x = startPositionX;
+            myTransform.position = Vector3.Lerp(transform.position, targetPosition, 0.8f);
         }
 
         void RotateBaseOnInput()
         {
-
-
-            float targetAngle = flyInput.value ? rotationSpeed : -rotationSpeed;
+            float targetAngle = flyInput.value ? rotationSpeed : -rotationSpeed * 0.7f;
             targetAngle *= Time.deltaTime;
             targetAngle += myTransform.eulerAngles.z;
             targetAngle = ClampAngle(targetAngle, -angleLimit, angleLimit);
             Vector3 targetEulerRotation = Vector3.forward * targetAngle;
-            //if (targetEulerRotation.z > 45) targetEulerRotation.z = 45;
-            //else if (targetEulerRotation.z < 315) targetEulerRotation.z = 315;
             myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.Euler(targetEulerRotation), 0.8f);
         }
 
